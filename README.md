@@ -7,7 +7,7 @@ particularly for use with Google App Engine
 
 #### GoogleClientLogin class
 
-Here's somee sample code for using the GoogleClientLogin class:
+Here's some sample code showing how to use the GoogleClientLogin class:
 
 setup:
 
@@ -28,7 +28,8 @@ delegate methods:
 
 #### GoogleAppEngineAuth class
 
-In order to get a cookie compatible with Google App Engine, you should use the GooleAppEngineAuth class:
+In order to get a cookie compatible with Google App Engine, you should use the GooleAppEngineAuth class (which uses the 
+GoogleClientLogin class):
 
 setup:
     GoogleAppEngineAuth *gaea = [[GoogleAppEngineAuth alloc] initWithDelegate:self andAppURL:[NSURL URLWithString:YOUR_APP_URL]];
@@ -47,7 +48,7 @@ delegate methods:
 
 #### Captchas
 
-If a CAPTCHA is required, the authCaptchaTestNeededFor delegate mathod will be called. In order to auth succesfully, you should display
-the CAPTCHA image to the user and ask them to enter what they see. You will also need to pass the captchaToken back to either
-GoogleClientLogin or GoogleAppEngineAuth.
+If a CAPTCHA is required, the authCaptchaTestNeededFor delegate method will be called. In order to auth successfully, you should display
+the CAPTCHA image to the user and ask them to enter what they see. Then, you'll need to pass what they entered along with the captchaToken
+back to either GoogleClientLogin or GoogleAppEngineAuth.
 
