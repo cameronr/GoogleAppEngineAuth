@@ -5,6 +5,17 @@ particularly for use with Google App Engine
 
 ## Usage
 
+#### Dependencies
+
+This code depends on the Google Toolbox for Mac:
+
+http://code.google.com/p/google-toolbox-for-mac/
+
+The only method used is gtm_stringByEscapingForURLArgument (which escapes '&', unlike stringByAddingPercentEscapesUsingEncoding).
+If you don't want to use the Google Toolbox for Mac, you can implement your own escaping function:
+
+http://simonwoodside.com/weblog/2009/4/22/how_to_really_url_encode/
+
 #### GoogleClientLogin class
 
 Here's some sample code showing how to use the GoogleClientLogin class:
