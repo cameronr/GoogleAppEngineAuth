@@ -105,9 +105,16 @@
 
     NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[response URL]];
     
+    // By default, we're looking for a cookie called ACSID
+    NSString *cookieName = @"ACSID";
+    
+    // If the app URL is for HTTPS, however, we need to look for the SACSID cookie
+    if ([[[m_appURL scheme] lowercaseString] isEqualToString:@"https"])
+        cookieName = @"SACSID";
+
     // iterate over cookies looking for ACSID
     for (NSHTTPCookie *cookie in cookies) {
-        if (![[cookie name] isEqualToString:@"ACSID"])
+        if (![[cookie name] isEqualToString:cookieName])
             continue;
         
         [m_delegate authSucceeded:[cookie value]];
